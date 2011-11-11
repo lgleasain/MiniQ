@@ -12,3 +12,13 @@ events.asterisk.manager_interface.each do |event|
     Bayeux.publish('/caller/leave', { :id => event.headers['Channel'] })
   end
 end
+
+events.asterisk.before_call.each do |call|
+  extension = call.variables[:extension]
+  ahn_log "New call with extension #{extension}"
+
+    Bayeux.publish('/caller/join', { :id => call.variables[:channel], 
+                                     :number => call.variables[:calleridname],
+                                     :joinedAt => Time.now.to_i })
+end
+
