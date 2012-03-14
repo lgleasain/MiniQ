@@ -3,7 +3,7 @@ require 'bayeux'
 events.asterisk.before_call.each do |call|
 
   Bayeux.publish('/caller/join', { :id => call.variables[:channel], 
-                                    :number => call.variables[:calleridname],
+                                    :number => call.variables[:calleridname].empty? ? call.variables[:dnid] : call.variables[:calleridname],
                                     :joinedAt => Time.now.to_i })
 end
 

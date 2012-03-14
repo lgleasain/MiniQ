@@ -4,6 +4,7 @@ gem "adhearsion", ">= 1.2.1"
 gem "sinatra"
 gem "faye"
 gem "foreman"
+gem "smsified"
 
 #
 # Here are some example components you might like to use. Simply
