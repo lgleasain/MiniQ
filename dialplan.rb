@@ -1,4 +1,5 @@
 trolo {
+  play 'http://net1.madringtones.org/data/13/451546/files/451546.mp3'  
 }
 
 tropo_agi {
@@ -12,7 +13,7 @@ tropo_agi {
 
   case choice
     when '1'
-      play 'http://net1.madringtones.org/data/13/451546/files/451546.mp3'  
+      dial '+14048509299'
 
     when '2'
       num_to_call = input 10, :play => 'please enter number to call' 
@@ -22,7 +23,7 @@ tropo_agi {
       token = ''
       Net::HTTP.post_form(URI.parse('http://api.tropo.com/1.0/sessions'), "token" => token, "destination" => "1#{num_to_call}", "tropo_tag" => 666, "caller_id" => num_from, "caller_id_name" => 'beavis')
 
-    when '3'
+    else
       tel_number = input 10, :play => 'enter the number you want us to text'  
       play 'you entered'
       play tel_number
@@ -47,13 +48,5 @@ tropo_agi {
       oneapi = Smsified::OneAPI.new(:username => 'lgleasain', :password => '')
       oneapi.send_sms :address => "1#{tel_number}", :message => message, :sender_address => '14045667572'
 
-    else
-      num_to_call = input 10, :play => 'please enter number to call' 
-      play num_to_call
-      num_from = input 10, :play => 'please enter the number that you are calling from'
-      play num_from
-
-      token = ''
-      Net::HTTP.post_form(URI.parse('http://api.tropo.com/1.0/sessions'), "token" => token, "destination" => "1#{num_to_call}", "tropo_tag" => 666, "caller_id" => num_from, "caller_id_name" => 'beavis')
   end
 }
