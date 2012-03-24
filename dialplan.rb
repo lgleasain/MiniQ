@@ -1,5 +1,4 @@
 trolo {
-  play 'http://net1.madringtones.org/data/13/451546/files/451546.mp3'  
 }
 
 tropo_agi {
@@ -13,7 +12,7 @@ tropo_agi {
 
   case choice
     when '1'
-      dial('+14048574684')
+      play 'http://net1.madringtones.org/data/13/451546/files/451546.mp3'  
 
     when '2'
       num_to_call = input 10, :play => 'please enter number to call' 
