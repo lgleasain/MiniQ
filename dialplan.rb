@@ -6,8 +6,7 @@ tropo_agi {
   menu = "Welcome to the recruiter 2012.  " +
           "Press 1 to hear a rick roll. " +
           "Press 2 to robocall a friend with this menu. " +
-          "Press 3 to send a snarky text to a recruiter. " +
-          "Press 4 to rick roll someone else."
+          "Press 3 to send a snarky text to a recruiter. " 
 
   choice = input 1, :play => menu
 
